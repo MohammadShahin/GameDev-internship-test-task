@@ -66,13 +66,20 @@ public class Col2 : MonoBehaviour
         }
         else if (col.gameObject.tag == "key")
         {
+            Movement.stPos = col.gameObject.transform.position;
             GameManager.Instance.IsOpen = true;
             Destroy(col.gameObject);
         }
         else if (col.gameObject.tag == "coin")
         {
-            GameManager.Instance.Score++;
-            Destroy(col.gameObject);
+            Coin t = col.gameObject.GetComponent<Coin>();
+            if (t.ok == true)
+            {
+                Movement.stPos = col.gameObject.transform.position;
+                t.ok = false;
+                GameManager.Instance.Score++;
+                Destroy(col.gameObject);
+            }
         }
     }
     void OnCollisionExit2D(Collision2D col)

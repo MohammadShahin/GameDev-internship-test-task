@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] float stX;
     [SerializeField] float stY;
-    private Vector2 stPos;
+    public static Vector2 stPos;
     private Rigidbody2D rb2;
     private Animator animator;
     float move_Speed = 100f;
